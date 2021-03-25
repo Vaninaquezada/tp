@@ -16,7 +16,7 @@ public user$ : Observable<any> = this.authSvc.afAuth.user;
 
   constructor(private authSvc: AuthService,private router:Router) { }
 
-  async ngOnInit() {
+   ngOnInit():void {
     //console.log('Nabar');
     //this.user = await this.authSvc.getUsuario();
    

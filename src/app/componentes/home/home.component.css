@@ -81,7 +81,6 @@ nav {
         height: 50%;
         background-repeat: no-repeat;
         text-align: justify;
-        background-image: url("../../../assets/imagenes/banner.jpg");
         z-index: -1;
         grid-column:  1/span 6;
     }

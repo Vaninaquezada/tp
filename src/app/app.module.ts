@@ -31,12 +31,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    RouterModule.forRoot([
-      {path: '', component: LoginComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'quiensoy', component: QuienSoyComponent},
-      {path: 'registro', component: RegistroComponent}
-    ]),
+    RouterModule,
     BrowserAnimationsModule,
  
     ReactiveFormsModule

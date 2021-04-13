@@ -1,0 +1,71 @@
+.juegoContainer {
+    width: auto;
+    padding: 16px;
+    font-family: "Chewy", cursive;
+    border: 10px solid #5c4474;
+    padding: 30px;
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+    border-radius: 25px;
+    width: 75%;
+    margin: auto;
+}
+
+.img-thumbnail {
+    width: 100px;
+    margin-right: 20px;
+    margin-left: 300px;
+}
+
+.intro {
+    color: #fff;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease;
+}
+
+.intro h1 {
+    font-size: 50px;
+}
+.seleccion button,
+.intro button,
+.match button {
+    width: 150px;
+    height: 50px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    background: rgb(211, 58, 178);
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 30px;
+}
+.titulo {
+    align-self: center;
+    text-align: center;
+}
+
+.seleccionJ {
+    align-self: center;
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+}
+.seleccion {
+    align-self: center;
+    text-align: center;
+}
+input {
+    margin: 20px;
+}
+h2 {
+    color: #fff;
+    padding: 20px;
+}
+h3 {
+    color: #fff;
+}

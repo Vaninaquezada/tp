@@ -14,6 +14,11 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { PiedraPapelTijeraComponent } from './juegos/piedra-papel-tijera/piedra-papel-tijera.component';
+import { MemoTestComponent } from './juegos/memo-test/memo-test.component';
+import { TatetiComponent } from './juegos/tateti/tateti.component';
+import { MiJuegoComponent } from './juegos/mi-juego/mi-juego.component';
+import { JuegosModule } from './juegos/juegos.module';
 
 
 @NgModule({
@@ -23,7 +28,11 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     QuienSoyComponent,
     NavbarComponent,
-    RegistroComponent
+    RegistroComponent,
+    PiedraPapelTijeraComponent,
+    MemoTestComponent,
+    TatetiComponent,
+    MiJuegoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,7 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     RouterModule,
     BrowserAnimationsModule,
- 
+    JuegosModule,
     ReactiveFormsModule
   ],
   providers: [],

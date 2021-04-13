@@ -6,10 +6,11 @@ import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 
 const routes: Routes = [
-  {path:'', component : LoginComponent },
-  {path:'home', component : HomeComponent },
-  {path:'quiensoy', component : QuienSoyComponent },
-  {path:'registro', component : RegistroComponent }
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'quiensoy', component: QuienSoyComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'juegos', loadChildren: () => import('./juegos/juegos.module').then(m => m.JuegosModule) }
 ];
 
 @NgModule({

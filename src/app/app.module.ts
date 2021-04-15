@@ -19,6 +19,7 @@ import { MemoTestComponent } from './juegos/memo-test/memo-test.component';
 import { TatetiComponent } from './juegos/tateti/tateti.component';
 import { MiJuegoComponent } from './juegos/mi-juego/mi-juego.component';
 import { JuegosModule } from './juegos/juegos.module';
+import { ChatComponent } from './componentes/chats/chat/chat.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { JuegosModule } from './juegos/juegos.module';
     PiedraPapelTijeraComponent,
     MemoTestComponent,
     TatetiComponent,
-    MiJuegoComponent
+    MiJuegoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

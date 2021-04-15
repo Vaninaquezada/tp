@@ -27,6 +27,7 @@ export class Tateti extends Juego {
 
     }
     public CambiarTurno() {
+        console.log("circulo " + !this.turnoCirculo);
         this.turnoCirculo = !this.turnoCirculo;
     }
 

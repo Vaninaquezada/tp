@@ -29,6 +29,7 @@ export class TatetiComponent implements OnInit {
     this.juego = new Tateti();
     this.listaclases = [];
     this.ocultarVerificar = false;
+    this.mensaje = " ninguno";
     this.clase1 = "";
     this.clase2 = "";
     this.clase3 = "";
@@ -52,22 +53,19 @@ export class TatetiComponent implements OnInit {
   Jugar(cuadradito: number) {
 
     this.MarcarJugada(cuadradito);
-    once: true;
+    console.log("Cuadradito " + cuadradito);
     this.juego.claseActual = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
 
-    console.log("Clase actual " + this.juego.claseActual);
-    console.log("Empate " + this.EsEmpate());
-    // console.log("verificar " + this.VerificarJugada());
     if (this.VerificarJugada()) {
 
       this.FinalizarJuego(false);
+
     } else if (this.EsEmpate()) {
 
       this.FinalizarJuego(true);
 
     } else {
 
-      this.juego.CambiarTurno();
       this.CuadraditoHover();
     }
     this.juego.CambiarTurno();
@@ -77,6 +75,7 @@ export class TatetiComponent implements OnInit {
   CuadraditoHover() {
 
     console.log("turnoHover " + this.juego.turnoCirculo);
+    console.log("clase  " + this.claseContainer);
     if (this.juego.turnoCirculo) {
       this.claseContainer = this.juego.o;
 
@@ -152,7 +151,6 @@ export class TatetiComponent implements OnInit {
 
           this.clase2 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
           this.listaclases[1] = this.clase2;
-          console.log("lista: " + this.listaclases[1]);
         }
         break;
       case 3:

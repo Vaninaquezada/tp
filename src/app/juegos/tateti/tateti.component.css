@@ -1,11 +1,15 @@
-body {
+.containerT {
     margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #111;
 }
 
 :root {
     --cuadrado-size: 200px;
     --mark-size: calc(var(--cuadrado-size) * 0.9);
 }
+
 .container {
     width: auto;
     padding: 16px;

@@ -1,3 +1,9 @@
+.containerT {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #111;
+}
 .juegoContainer {
     width: auto;
     padding: 16px;

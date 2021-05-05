@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PiedraPapelTijeraComponent } from './juegos/piedra-papel-tijera/piedra-papel-tijera.component';
 import { MemoTestComponent } from './juegos/memo-test/memo-test.component';
@@ -20,6 +21,7 @@ import { TatetiComponent } from './juegos/tateti/tateti.component';
 import { MiJuegoComponent } from './juegos/mi-juego/mi-juego.component';
 import { JuegosModule } from './juegos/juegos.module';
 import { ChatComponent } from './componentes/chats/chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { ChatComponent } from './componentes/chats/chat/chat.component';
     RouterModule,
     BrowserAnimationsModule,
     JuegosModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,22 +23,21 @@ export class TatetiComponent implements OnInit {
   cellElements: any;
   listaclases: Array<string>;
   ocultarVerificar: boolean;
-
+  clasesCuadritos: Array<string>;
 
   constructor() {
     this.juego = new Tateti();
-    this.listaclases = [];
-    this.ocultarVerificar = false;
-    this.mensaje = " ninguno";
-    this.clase1 = "";
-    this.clase2 = "";
-    this.clase3 = "";
-    this.clase4 = "";
-    this.clase5 = "";
-    this.clase6 = "";
-    this.clase7 = "";
-    this.clase8 = "";
-    this.clase9 = "";
+    this.nuevoJuego();
+    this.clasesCuadritos = [this.clase1,
+    this.clase2,
+    this.clase3,
+    this.clase4,
+    this.clase5,
+    this.clase6,
+    this.clase4,
+    this.clase8,
+    this.clase9]
+
   }
 
   ngOnInit(): void {
@@ -46,42 +45,37 @@ export class TatetiComponent implements OnInit {
     this.CuadraditoHover();
     this.cellElements = document.querySelectorAll('[data-cell]');
 
-    this.ocultarVerificar = false;
 
   }
 
   Jugar(cuadradito: number) {
 
     this.MarcarJugada(cuadradito);
-    console.log("Cuadradito " + cuadradito);
     this.juego.claseActual = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-
     if (this.VerificarJugada()) {
 
       this.FinalizarJuego(false);
 
-    } else if (this.EsEmpate()) {
+    }
+    if (this.EsEmpate()) {
 
       this.FinalizarJuego(true);
 
-    } else {
-
-      this.CuadraditoHover();
     }
+
     this.juego.CambiarTurno();
-    console.log("Gano" + this.mensaje);
+    this.CuadraditoHover();
+    // this.juego.CambiarTurno();
+
   }
 
   CuadraditoHover() {
 
-    console.log("turnoHover " + this.juego.turnoCirculo);
-    console.log("clase  " + this.claseContainer);
     if (this.juego.turnoCirculo) {
       this.claseContainer = this.juego.o;
 
     } else {
       this.claseContainer = this.juego.x;
-
     }
 
   }
@@ -92,11 +86,11 @@ export class TatetiComponent implements OnInit {
       this.mensaje = 'Empate!'
     } else {
 
-      this.mensaje = this.juego.turnoCirculo ? "O " : "X " + 'Gano!';
+      this.mensaje = this.juego.turnoCirculo ? "O Gano!" : "X " + 'Gano!';
 
     }
     this.claseMensaje = 'show';
-    console.log(this.mensaje);
+    this.ocultarVerificar = true;
   }
 
   VerificarJugada() {
@@ -113,86 +107,94 @@ export class TatetiComponent implements OnInit {
 
 
   EsEmpate() {
-    let i = 0;
-    this.listaclases.forEach(element => {
-      if (element == this.juego.x || element == this.juego.o) {
-        i++;
+    return [...this.listaclases].every(cell => {
+      return cell == this.juego.o || cell == this.juego.x;
 
-      }
-    });
+    })
+    /* this.juego.o : this.juego.x
+       let i = 0;
+       this.listaclases.forEach(element => {
+         if (element == this.juego.x || element == this.juego.o) {
+           i++;
+   
+         }
+       });
+   
+       if (i == 9) {
+         return true;
+       }
+       return false;
+   
+       /*
+           return this.listaclases.every(cell => {
+       
+             return cell == this.juego.x || cell == this.juego.o;
+           })
+           */
 
-    if (i == 9) {
-      return true;
-    }
-    return false;
 
-    /*
-        return this.listaclases.every(cell => {
-    
-          return cell == this.juego.x || cell == this.juego.o;
-        })
-        */
   }
 
   MarcarJugada(cuadradito: number) {
 
-    console.log(cuadradito);
+    let clase = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
+
     switch (cuadradito) {
-      case 1:
+      case 0:
         if (this.clase1 == null || this.clase1 == "") {
 
-          this.clase1 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[0] = this.clase1;
+          this.clase1 = clase;
+          this.listaclases[cuadradito] = clase;
         }
 
         break;
-      case 2:
-        if (this.clase2 == null || this.clase1 == "") {
+      case 1:
+        if (this.clase2 == null || this.clase2 == "") {
 
-          this.clase2 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[1] = this.clase2;
+          this.clase2 = clase;
+          this.listaclases[cuadradito] = clase;
+        }
+        break;
+      case 2:
+        if (this.clase3 == null || this.clase3 == "") {
+          this.clase3 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 3:
-        if (this.clase3 == null || this.clase1 == "") {
-          this.clase3 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[2] = this.clase3;
+        if (this.clase4 == null || this.clase4 == "") {
+          this.clase4 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 4:
-        if (this.clase4 == null || this.clase1 == "") {
-          this.clase4 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[3] = this.clase4;
+        if (this.clase5 == null || this.clase5 == "") {
+          this.clase5 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 5:
-        if (this.clase5 == null || this.clase1 == "") {
-          this.clase5 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[4] = this.clase5;
+        if (this.clase6 == null || this.clase6 == "") {
+          this.clase6 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 6:
-        if (this.clase6 == null || this.clase1 == "") {
-          this.clase6 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[5] = this.clase6;
+        if (this.clase7 == null || this.clase7 == "") {
+          this.clase7 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 7:
-        if (this.clase7 == null) {
-          this.clase7 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[6] = this.clase7;
+        if (this.clase8 == null || this.clase8 == "") {
+          this.clase8 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       case 8:
-        if (this.clase8 == null || this.clase1 == "") {
-          this.clase8 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[7] = this.clase8;
-        }
-        break;
-      case 9:
-        if (this.clase9 == null || this.clase1 == "") {
-          this.clase9 = this.juego.turnoCirculo ? this.juego.o : this.juego.x;
-          this.listaclases[8] = this.clase9;
+        if (this.clase9 == null || this.clase9 == "") {
+          this.clase9 = clase;
+          this.listaclases[cuadradito] = clase;
         }
         break;
       default:
@@ -201,4 +203,22 @@ export class TatetiComponent implements OnInit {
 
   }
 
+  nuevoJuego() {
+    this.ocultarVerificar = false;
+    this.claseMensaje = '';
+    this.listaclases = [null, null, null, null, null, null, null, null, null];
+    this.ocultarVerificar = false;
+    this.mensaje = " ninguno";
+    this.clase1 = "";
+    this.clase2 = "";
+    this.clase3 = "";
+    this.clase4 = "";
+    this.clase5 = "";
+    this.clase6 = "";
+    this.clase7 = "";
+    this.clase8 = "";
+    this.clase9 = "";
+
+
+  }
 }

@@ -1,1 +1,38 @@
-<p>memo-test works!</p>
+<section class="memory-game">
+    <h1 class="page-title">Memotest</h1>
+    <div class="overlay-text {{start}}" (click)="ready()">
+        Click para empezar
+    </div>
+    <div id="game-over-text" class="overlay-text {{juegoTerminado}}" (click)="ready()">
+        Juego Terminado <br>
+        <span class=" overlay-text-small"> <br> <br> <br> <br> Click para jugar de nuevo</span>
+    </div>
+    <div id="victory-text" class="overlay-text {{victoria}}" (click)="ready()">
+        Ganaste
+        <span class="overlay-text-small"><br> <br> <br> <br>Click para jugar de nuevo</span>
+    </div>
+
+    <div class="game-container">
+        <div class="game-info-container">
+            <div class="game-info">
+                Tiempo: <span id="time-remaining">{{timer}}</span>
+            </div>
+            <div class="game-info">
+                Dadas vuelta: <span id="flips">{{ticker}}</span>
+            </div>
+        </div>
+        <div *ngFor="let item of cardsArray">
+            <div class="card" (click)="onClick(item)"
+                [ngClass]="cardsArray[item.tarjeta].visible ? claseVisible : sinClase">
+                <div class="card-back card-face">
+
+                </div>
+                <div class="card-front card-face">
+
+                    <img class="card-value" src={{item.img}}>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -20,27 +20,28 @@
       </div>
     </div>
 
-    <div class="box" routerLink="/chat">
+    <div class="box" routerLink="/listados">
       <span></span>
       <div class="content">
-        <h2>Chat </h2>
+        <h2>Resultados </h2>
       </div>
     </div>
 
-    <div class="box">
+    <div class="box" routerLink="/encuesta">
       <span></span>
       <div class="content">
-        <h2>Listas </h2>
+        <h2>Encuesta</h2>
+
+      </div>
+    </div>
+    <div class="box" routerLink="/listados">
+      <span routerLink="/listados"></span>
+      <div class="content">
+        <h2></h2>
 
       </div>
     </div>
 
-    <div class="box">
-      <span></span>
-      <div class="content">
-        <h2>Listado de Juegos</h2>
-
-      </div>
-    </div>
   </div>
 </div>
+<app-chat *ngIf="user$ | async as user; "></app-chat>

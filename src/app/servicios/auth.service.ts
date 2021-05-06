@@ -20,7 +20,6 @@ export class AuthService {
       switchMap((user) => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-
         }
         return of(null);
       })
@@ -33,7 +32,7 @@ export class AuthService {
         email,
         password
       );
-      this.updateUserData(user);
+      // 
       return user;
     } catch (error) {
       console.log(error);
@@ -45,7 +44,7 @@ export class AuthService {
         email,
         password
       );
-
+      this.updateUserData(user);
       return user;
     } catch (error) {
       console.log(error);

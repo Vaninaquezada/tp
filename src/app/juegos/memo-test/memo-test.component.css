@@ -167,3 +167,6 @@
         align-items: center;
     }
 }
+section {
+    margin: 30px;
+}

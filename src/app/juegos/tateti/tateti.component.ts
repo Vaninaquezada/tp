@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Lista } from 'src/app/clases/lista';
+import { ListadoService } from 'src/app/servicios/listado.service';
 import { Tateti } from '../clases/tateti';
 
 @Component({
@@ -24,8 +26,8 @@ export class TatetiComponent implements OnInit {
   listaclases: Array<string>;
   ocultarVerificar: boolean;
   clasesCuadritos: Array<string>;
-
-  constructor() {
+  resultado: Lista;
+  constructor(private listado: ListadoService) {
     this.juego = new Tateti();
     this.nuevoJuego();
     this.clasesCuadritos = [this.clase1,
@@ -86,9 +88,16 @@ export class TatetiComponent implements OnInit {
       this.mensaje = 'Empate!'
     } else {
 
-      this.mensaje = this.juego.turnoCirculo ? "O Gano!" : "X " + 'Gano!';
+      this.mensaje = this.juego.turnoCirculo ? "O Gano" : "X " + 'Gano';
 
     }
+    this.resultado = {
+      "tiempo": "n/a",
+      "resultado": this.mensaje,
+      "clicks": "n/a",
+      "juego": "TaTeTi",
+    }
+    this.listado.addResultado(this.resultado);
     this.claseMensaje = 'show';
     this.ocultarVerificar = true;
   }

@@ -16,11 +16,13 @@
         <a class="nav-link" routerLink="/quiensoy">¿Quien Soy?</a>
       </li>
       <li class="nav-item" *ngIf="user">
-        <a class="nav-link" routerLink="/chat">Chat general</a>
+        <a class="nav-link" routerLink="/listados">Resultados</a>
       </li>
+      <!--
       <li class="nav-item" *ngIf="user">
         <a class="nav-link" routerLink="/juegos">Juegos</a>
       </li>
+      -->
       <li class="nav-item" *ngIf="user">
         <span class="nav-link">{{user?.email }}</span>
       </li>

@@ -38,7 +38,7 @@ export class PiedraPapelTijera extends Juego {
 
                 return false;
             } else {
-                this.mensaje = "Perdistes. Te gano la compu";
+                this.mensaje = "Perdiste. Te gano la compu";
                 return true;
             }
         }
@@ -55,7 +55,7 @@ export class PiedraPapelTijera extends Juego {
         //Check for tijera
         if (this.seleccionJugador === "tijera") {
             if (this.seleccionCompu === "piedra") {
-                this.mensaje = "Perdistes. Te gano la compu";
+                this.mensaje = "Perdiste. Te gano la compu";
                 return false;
             } else {
                 this.mensaje = "Ganaste!!";

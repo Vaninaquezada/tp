@@ -22,6 +22,8 @@ import { MiJuegoComponent } from './juegos/mi-juego/mi-juego.component';
 import { JuegosModule } from './juegos/juegos.module';
 import { ChatComponent } from './componentes/chats/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListadoComponent } from './componentes/listado/listado.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     MemoTestComponent,
     TatetiComponent,
     MiJuegoComponent,
-    ChatComponent
+    ChatComponent,
+    ListadoComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

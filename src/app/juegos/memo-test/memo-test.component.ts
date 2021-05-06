@@ -1,7 +1,9 @@
 import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Lista } from 'src/app/clases/lista';
 import { ImageService } from 'src/app/servicios/image.service';
+import { ListadoService } from 'src/app/servicios/listado.service';
 
 
 @Component({
@@ -28,9 +30,9 @@ export class MemoTestComponent implements OnInit {
   claseVisible: string;
   img;
   img2;
+  resultado: Lista;
 
-
-  constructor(private svcImg: ImageService) {
+  constructor(private svcImg: ImageService, private listado: ListadoService) {
     this.claseVisible = "visible";
     this.sinClase = "";
     this.start = "visible";
@@ -92,8 +94,24 @@ export class MemoTestComponent implements OnInit {
     clearInterval(this.countdown);
 
     this.juegoTerminado = "visible";
+
+    this.resultado = {
+      "tiempo": "100 seg",
+      "resultado": "Perdio",
+      "clicks": this.ticker,
+      "juego": "Memotest",
+    }
+    this.listado.addResultado(this.resultado);
   }
   victory() {
+
+    this.resultado = {
+      "tiempo": this.timer + " seg",
+      "resultado": "Ganaste",
+      "clicks": this.ticker,
+      "juego": "Memotest",
+    }
+    this.listado.addResultado(this.resultado);
     clearInterval(this.countdown);
     this.victoria = "visible";
   }

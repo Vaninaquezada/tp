@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Estado } from '../clases/miJuego/estado';
 import { Grilla } from '../clases/miJuego/grilla';
 import { Caja } from '../clases/miJuego/caja';
+import { ListadoService } from 'src/app/servicios/listado.service';
+import { Lista } from 'src/app/clases/lista';
 
 @Component({
   selector: 'app-mi-juego',
@@ -9,6 +11,7 @@ import { Caja } from '../clases/miJuego/caja';
   styleUrls: ['./mi-juego.component.css']
 })
 export class MiJuegoComponent implements OnInit {
+  resultado: Lista;
   estado: Estado;
   tickId = null;
   boton: string = "";
@@ -21,7 +24,7 @@ export class MiJuegoComponent implements OnInit {
   contador;
 
 
-  constructor() {
+  constructor(private listado: ListadoService) {
     this.nuevoJuego(Estado.ready());
     this.grupoCajas = [];
     //   this.contenido = [, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -40,9 +43,6 @@ export class MiJuegoComponent implements OnInit {
     this.estado = state;
     this.tickId = null;
     this.tick = this.tick.bind(this);
-
-    //  this.render();
-    //  this.handleClickBox = this.handleClickBox.bind(this);
 
   }
 
@@ -68,7 +68,6 @@ export class MiJuegoComponent implements OnInit {
     if (blankBox) {
 
       let newGrid = Grilla.swapBoxes(this.estado.grid, caja, blankBox);
-      console.log("grilla nueva", Grilla.isSolved(newGrid));
       if (Grilla.isSolved(newGrid)) {
         clearInterval(this.tickId);
         this.setState({
@@ -116,8 +115,18 @@ export class MiJuegoComponent implements OnInit {
     if (this.estado.status === "jugando") this.boton = "Reiniciar";
 
     if (this.estado.status === "gano") {
+
       this.boton = "Jugar";
       this.victoria = "visible";
+
+      this.resultado = {
+        "tiempo": this.estado.time.toString() + " seg",
+        "resultado": "Gano",
+        "clicks": this.estado.move.toString(),
+        "juego": "Rompecabezas",
+      }
+      this.listado.addResultado(this.resultado);
+
     }
 
 

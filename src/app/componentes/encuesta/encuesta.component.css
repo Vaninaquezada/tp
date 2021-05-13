@@ -1,0 +1,15 @@
+.container {
+    color: aliceblue;
+}
+.mail {
+    color: magenta;
+}
+
+.invalid {
+    color: red;
+    font-size: large;
+}
+
+.sexo {
+    margin: 20px;
+}

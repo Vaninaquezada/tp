@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Encuesta } from 'src/app/clases/encuesta';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -17,7 +18,7 @@ export class EncuestaComponent implements OnInit {
   mail;
   encuesta: Encuesta = {};
 
-  constructor(private fb: FormBuilder, private authSvc: AuthService, private enSvc: EncuestaService) {
+  constructor(private fb: FormBuilder, private authSvc: AuthService, private enSvc: EncuestaService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -54,7 +55,7 @@ export class EncuestaComponent implements OnInit {
 
 
     this.enSvc.addEncuesta(this.encuesta);
-
+    this.router.navigate(['/home']);
 
   }
   async getmail() {
